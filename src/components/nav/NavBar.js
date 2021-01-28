@@ -12,9 +12,6 @@ export const NavBar = () => {
                 <img className="navbar__logo" src={Logo} />
             </li>
             <li className="navbar__item">
-<<<<<<< HEAD
-                <Link className="navbar__link" to="/Posts">Posts</Link>
-=======
                 <Link className="navbar__link" to="/allposts">All Posts</Link>
             </li>
             <li className="navbar__item">
@@ -25,7 +22,6 @@ export const NavBar = () => {
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/tags">Tag Manager</Link>
->>>>>>> main
             </li>
             {
                 (localStorage.getItem("rare_user_id") !== null) ?
