@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "./Login.css"
 
 export const Login = (props) => {
@@ -7,24 +7,30 @@ export const Login = (props) => {
   const password = useRef()
   const existDialog = useRef()
   const passwordDialog = useRef()
+  const history = useHistory()
 
   const existingUserCheck = () => {
-    // debugger
-    // If your json-server URL is different, please change it below!
     return fetch(`http://localhost:8088/users?email=${email.current.value}`)
       .then((_) => _.json())
-      .then((user) => (user.length ? user[0] : false))
+      .then((user) => ("id" in user ? user : false))
+  }
+
+  const getall = () => {
+    return fetch(`http://localhost:8088/users`).then((res) =>
+      res.json().then((users) => console.log(users))
+    )
   }
 
   const handleLogin = (e) => {
     e.preventDefault()
-
+    getall()
     existingUserCheck().then((exists) => {
+      console.log(exists)
+      console.log(email)
+      console.log(password)
       if (exists && exists.password === password.current.value) {
-        // The user id is saved under the key app_user_id in local Storage. Change below if needed!
-        localStorage.setItem("app_user_id", exists.id)
-        // localStorage.setItem("current_race", selectedRace.userId)
-        props.history.push("/")
+        localStorage.setItem("rare_user_id", exists.id)
+        history.push("/")
       } else if (exists && exists.password !== password.current.value) {
         passwordDialog.current.showModal()
       } else if (!exists) {
@@ -49,7 +55,7 @@ export const Login = (props) => {
       </dialog>
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Application Name</h1>
+          <h1>Nashville Kennels</h1>
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputEmail"> Email address </label>
