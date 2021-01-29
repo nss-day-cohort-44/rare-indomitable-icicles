@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {TagContext} from "./TagProvider"
 import {Tag} from "./TagDetails"
+import { TagForm } from './TagForm'
 
 export const TagList = (props) => {
 
@@ -13,11 +14,13 @@ useEffect(() => {
 
 return (     
     <div> 
+
     <h3>Tags</h3>
+
     {
         tags.map(tagObj => <Tag key={tagObj.id} tag={tagObj} props={props}/> )
     }
+
     </div> 
 )
 }
-
