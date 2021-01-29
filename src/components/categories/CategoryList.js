@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react"
 import { CategoryContext } from "../categories/CategoryProvider"
 import { Category } from "./Category"
-import { CategoryForm } from "./CategoryForm"
 
-export const CategoryList = () => {
+export const CategoryList = (props) => {
     const { categories, getCategories } = useContext(CategoryContext)
     // const userId =  parseInt(localStorage.getItem("app_user_id"))
     useEffect(()=>{
@@ -14,6 +13,10 @@ export const CategoryList = () => {
         <>
             <div className="row">
             <h1>Categories</h1>
+                <button onClick={() => {
+                    props.history.push(`/categories/create`)
+                }}>Create a new category
+                </button>
                 <div className="column">
                     {categories
                     // .filter(c => c.userId === userId)
@@ -25,7 +28,6 @@ export const CategoryList = () => {
                     })
                     }
                 </div>
-                <CategoryForm  />
             </div>
         </>
     )
