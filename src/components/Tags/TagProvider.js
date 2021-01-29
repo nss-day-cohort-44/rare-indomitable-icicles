@@ -33,7 +33,6 @@ export const TagProvider = (props) => {
         return fetch(`http://localhost:8088/tags/${id}`, {
           method: "DELETE"
         })
-        .then(res => res.json())
            .then(getTags)  
          
       }

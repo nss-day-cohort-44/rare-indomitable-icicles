@@ -1,26 +1,41 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext } from "react"
 import { TagContext } from "./TagProvider"
 
 
 
-export const Tag = ({tag, props}) => {
-    
-    
+export const Tag = ({ tag, props }) => {
 
-    if(localStorage.getItem("rare_user_id")){
-        return(
+    const { deleteTag } = useContext(TagContext)
+   
+    if (localStorage.getItem("rare_user_id")) {
+        return (
             <div>
-               label: {tag.label}
-           </div>
-             )
-    }else{
-       return(
-           <div>
-               No tags
-           </div>
-       )
+                {tag.label}
+                <button onClick={() => {
+                    deleteTag(tag.id)
+                        .then(() => {
+                            props.history.push("/tags")
+                        })
+                }}>
+                    Delete
+               </button>
+
+                <button onClick={() => {
+                    props.history.push(`/tags/edit/${tag.id}`)
+                }}>
+                    Edit
+                </button>
+
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                No tags
+            </div>
+        )
     }
 }
-    
+
 
 

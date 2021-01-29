@@ -18,7 +18,7 @@ return (
     <h3>Tags</h3>
 
     {
-        tags.map(tagObj => <Tag key={tagObj.id} tag={tagObj} props={props}/> )
+        tags.map(tagObj =>  <Tag key={tagObj.id} tag={tagObj} props={props}/> )
     }
 
     </div> 
