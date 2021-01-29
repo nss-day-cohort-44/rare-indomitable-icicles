@@ -23,7 +23,7 @@ export const PostDetail = (props) =>{
         <div>{post.content}</div>
         <div>{post.category.label}</div>
         <div>{post.username}</div>
-        { parseInt(localStorage.getItem("rare_user_id")) === post.user_id ? <><button onClick={()=>{deletePost(post.id).then(() => {props.history.push("/posts")})}}>Delete Post</button> <Link>Edit Post</Link> </>:<> {""}</>
+        { parseInt(localStorage.getItem("rare_user_id")) === post.user_id ? <><button onClick={()=>{deletePost(post.id).then(() => {props.history.push("/posts")})}}>Delete Post</button> <button onClick={()=>{props.history.push(`/posts/edit/${post.id}`)}}>Edit Post</button> </>:<> {""}</>
     }
     <Link>View Comments</Link>
 
