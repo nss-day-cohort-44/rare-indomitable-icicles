@@ -12,7 +12,16 @@ export const NavBar = () => {
                 <img className="navbar__logo" src={Logo} />
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/">Posts</Link>
+                <Link className="navbar__link" to="/allposts">All Posts</Link>
+            </li>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/posts">My Posts</Link>
+            </li>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/categories">Category Manager</Link>
+            </li>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/tags">Tag Manager</Link>
             </li>
             {
                 (localStorage.getItem("rare_user_id") !== null) ?
