@@ -3,13 +3,12 @@ import {CommentContext} from "./CommentProvider"
 import {Comment} from "./Comment"
 
 export const CommentList = (props) => {
+    const { deleteComment, getComments, addComment, comments } = useContext(CommentContext)
 
-const { deleteComment, getComments, addComment, comments } = useContext(CommentContext)
-
-useEffect(() => {
-    console.log("CommentsList View")
-    getComments()
-}, [])
+    useEffect(() => {
+        console.log("CommentsList View")
+        getComments()
+    }, [])
 
 return (     
     <div> 
