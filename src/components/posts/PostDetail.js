@@ -23,11 +23,10 @@ export const PostDetail = (props) =>{
         <div>{post.content}</div>
         <div>{post.category.label}</div>
         <div>{post.username}</div>
-        <button onClick={()=>{deletePost(post.id).then(() => {
-                        props.history.push("/posts")
-                    })}}>Delete Post</button>
-        <Link>Edit Post</Link>
-        <Link>View Comments</Link>
+        { parseInt(localStorage.getItem("rare_user_id")) === post.user_id ? <><button onClick={()=>{deletePost(post.id).then(() => {props.history.push("/posts")})}}>Delete Post</button> <Link>Edit Post</Link> </>:<> {""}</>
+    }
+    <Link>View Comments</Link>
+
         </>
     )
 }
