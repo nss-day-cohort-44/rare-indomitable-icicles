@@ -22,7 +22,8 @@ export const ApplicationViews = () => {
             <PostProvider>
                 <Route exact path="/posts" render={(props) => <UserPostList {...props} />}/>
                 <Route exact path="/allposts" render={(props) => <AllPostList {...props}/>}/>
-                <Route exact path="/tags" render={ props => <> <TagList {...props} /> <TagForm {...props} /></>} />
+                <Route exact path="/tags" render={ props => <> <TagList {...props} /> </>} />
+                <Route exact path="/tags/create" render={ props => <> <TagForm {...props} /></>} />
                 <Route exact path="/tags/edit/:id(\d+)" render={ props => <> <TagForm {...props} /></>} />
                 <Route 
                 path="/posts/:postId(\d+)"

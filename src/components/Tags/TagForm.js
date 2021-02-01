@@ -13,7 +13,7 @@ export const TagForm = (props) => {
     console.log("proooooops", props)
   
     // Is there a a URL parameter??
-    const editMode = props.match.params.hasOwnProperty("id")
+    const editMode = props.location.hasOwnProperty("tagId")
 
   
     const handleControlledInputChange = (event) => {
@@ -32,11 +32,13 @@ export const TagForm = (props) => {
       console.log("newTag after modification", newTag)
   
       setTag(newTag)
+      console.log("incoming tag 2", tag)
+
     }
   
     const getTagInEditMode = () => {
       if (editMode) {
-        const tagId = parseInt(props.match.params.tagId)
+        const tagId = parseInt(props.location.tagId)
         const selectedTag = tags.find(t => t.id === tagId) || {}
         setTag(selectedTag)
       }
@@ -58,7 +60,7 @@ export const TagForm = (props) => {
   
         if (editMode) {
             updateTag({
-            id: tag.id,
+            id: props.location.tagId,
             label: tag.label
           })
             .then(() => props.history.push("/tags"))
@@ -70,6 +72,8 @@ export const TagForm = (props) => {
             .then(() => props.history.push("/tags"))
         }
       }
+
+      console.log("incoming tag", tag)
     
     return (
       <form className="tagForm">
@@ -80,7 +84,7 @@ export const TagForm = (props) => {
             <input type="text" name="label" required autoFocus className="form-control"
               placeholder="Tag name"
               onChange={handleControlledInputChange}
-              value={tag.name}
+              value={tag.label}
             />
           </div>
         </fieldset>

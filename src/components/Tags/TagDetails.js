@@ -21,11 +21,10 @@ export const Tag = ({ tag, props }) => {
                </button>
 
                 <button onClick={() => {
-                    props.history.push(`/tags/edit/${tag.id}`)
-                }}>
-                    Edit
-                </button>
+                    
+                    props.history.push({ pathname: `/tags/edit/${tag.id}`,  tagId : tag.id  })
 
+                }}> Edit </button>
             </div>
         )
     } else {
