@@ -100,5 +100,4 @@ export const ApplicationViews = () => {
             </main>
         </>
     );
->>>>>>> main
 };
