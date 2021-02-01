@@ -13,6 +13,9 @@ import {
 import { CategoryList } from "./categories/CategoryList";
 import { CategoryForm } from "./categories/CategoryForm";
 import { PostForm } from "./posts/PostForm";
+import { TagProvider } from "./Tags/TagProvider"
+import { TagForm } from "./Tags/TagForm";
+import {TagList} from "./Tags/TagList"
 
 export const ApplicationViews = () => {
   return (
@@ -23,6 +26,7 @@ export const ApplicationViews = () => {
           lineHeight: "1.75rem",
         }}
       >
+        <TagProvider>
         <PostProvider>
           <CategoryProvider>
             <CommentProvider>
@@ -70,9 +74,25 @@ export const ApplicationViews = () => {
                 path="/categories/edit/:categoryId(\d+)"
                 render={(props) => <CategoryForm {...props} />}
               />
+              <Route 
+                exact 
+                path="/tags" 
+                render={ (props) => <TagList {...props} />} 
+              />
+              <Route 
+                exact
+                path="/tags/create" 
+                render={ (props) => <TagForm {...props} />} 
+              />
+              <Route 
+                exact 
+                path="/tags/edit/:id(\d+)" 
+                render={ (props) => <TagForm {...props} />} 
+              /> 
             </CommentProvider>
           </CategoryProvider>
         </PostProvider>
+    </TagProvider>
       </main>
     </>
   );
