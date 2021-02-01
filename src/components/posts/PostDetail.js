@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 export const PostDetail = (props) => {
     const { posts, getSinglePost, post, setPost, deletePost } = useContext(PostContext)
     const { comments, setComments, getCommentsByPostId } = useContext(CommentContext)
+    
     console.log(props)
 
     useEffect(() => {
@@ -17,7 +18,6 @@ export const PostDetail = (props) => {
         getCommentsByPostId(postId)
             .then(setPost(post))
             .then(setComments(comments))
-        console.log("comments list? :", comments)
     }, [])
 
     console.log(post)
@@ -37,7 +37,7 @@ export const PostDetail = (props) => {
             }
             <Link to={{
                 pathname: `/posts/addcomment`,
-                state: {chosenPost: post }
+                state: { chosenPost: post }
                 }}>Add a Comment</Link>
         </>
     )
