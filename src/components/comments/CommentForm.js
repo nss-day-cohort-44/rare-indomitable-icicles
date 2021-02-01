@@ -21,7 +21,7 @@ export const CommentForm = (props) => {
     }
 
     const getCommentInEditMode = () => {
-        if(editMode){
+        if (editMode) {
             const commentId = parseInt(props.match.params.commentId)
             const selectedComment = comments.find(c => c.id === commentId) || {}
             setComment(selectedComment)
@@ -47,7 +47,6 @@ export const CommentForm = (props) => {
             })
             .then(() => props.history.push(`/posts/${post_id}`))
         } else {
-            debugger
             addComment({
                 post_id,
                 author_id,
@@ -60,7 +59,7 @@ export const CommentForm = (props) => {
             
     return (
         <form className="commentForm">
-            <h2 className="commentForm__title">{editMode ? "Update Comment" : "Update Comment"}</h2>
+            <h2 className="commentForm__title">{editMode ? "Update Comment" : "New Comment"}</h2>
                         
             <fieldset>
                 <div className="form-group">

@@ -15,7 +15,7 @@ export const PostDetail = (props) => {
         const postId = parseInt(props.match.params.postId)
         getSinglePost(postId)
         getCommentsByPostId(postId)
-            .then(setPost(props.location.state.chosenPost))
+            .then(setPost(post))
             .then(setComments(comments))
         console.log("comments list? :", comments)
     }, [])
