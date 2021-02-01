@@ -12,7 +12,7 @@ export const Register = (props) => {
   const passwordDialog = useRef()
   const history = useHistory()
   const date = new Date()
-  const milliDate = date.getTime
+  const milliDate = date.getTime()
 
   const handleRegister = (e) => {
     e.preventDefault()
@@ -25,7 +25,7 @@ export const Register = (props) => {
         "password": password.current.value,
         "bio": "",
         "username": username.current.value,
-        "created_on": date,
+        "created_on": milliDate,
         "profile_image_url": "",
         "active": true,
         "account_type_id": 2,
