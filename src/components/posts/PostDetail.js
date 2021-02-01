@@ -35,7 +35,7 @@ export const PostDetail = (props) => {
             {
                 comments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
-            <Link>Add another Comment</Link>
+            <Link>Add a Comment</Link>
         </>
     )
 }
