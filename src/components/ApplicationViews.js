@@ -13,9 +13,9 @@ import {
 import { CategoryList } from "./categories/CategoryList";
 import { CategoryForm } from "./categories/CategoryForm";
 import { PostForm } from "./posts/PostForm";
-import { TagProvider } from "./Tags/TagProvider"
-import { TagForm } from "./Tags/TagForm";
-import {TagList} from "./Tags/TagList"
+import { TagProvider } from "./tags/TagProvider"
+import { TagForm } from "./tags/TagForm";
+import {TagList} from "./tags/TagList"
 
 export const ApplicationViews = () => {
   return (
