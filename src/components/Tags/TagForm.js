@@ -99,6 +99,10 @@ export const TagForm = (props) => {
           className="btn btn-primary">
           {editMode ? "Save New Tag" : "Submit Tag"}
         </button>
+        <button onClick={() => {
+                    props.history.push(`/tags`)
+                }}>Back
+                </button>
       </form>
     )
   
