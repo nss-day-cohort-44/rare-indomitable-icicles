@@ -5,6 +5,7 @@ import {PostContext} from "./PostProvider"
 export const PostForm = (props) =>{
 const { addPost, updatePost, posts, getPosts } = useContext(PostContext)
 const { categories, getCategories } = useContext(CategoryContext)
+const {tags, getTags} = useContext(TagContext)
 
 const [formPost, setFormPost] = useState({})
 
@@ -32,6 +33,7 @@ const getPostInEditMode = () =>{
 useEffect(() =>{
     getPosts()
     getCategories()
+    getTags()
 }, [])
 
 useEffect(() =>{
@@ -106,6 +108,18 @@ return (
                     ))
                 }
                 </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="tags">Select Tags:</label>
+                {
+                    tags.map(t=>{
+                        <input type="checkbox" name={t.label} value={t.id}>
+                            <label for={t.label}>{t.label}</label>
+                        </input>
+                    })
+                }
             </div>
         </fieldset>
         <fieldset>
