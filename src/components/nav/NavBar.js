@@ -33,7 +33,7 @@ export const NavBar = () => {
       </li>
       <li className="navbar__item">
         <Link className="navbar__link" to="/users">
-          User
+          Users
         </Link>
       </li>
       {localStorage.getItem("rare_user_id") !== null ? (
