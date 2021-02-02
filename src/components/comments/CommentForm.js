@@ -7,7 +7,7 @@ export const CommentForm = (props) => {
 
     const [ comment, setComment ] = useState({})
 
-    const editMode = props.match.params.hasOwnProperty("postId")
+    const editMode = props.match.params.hasOwnProperty("commentId")
 
     const chosenPost = props.location.state.chosenPost
 
@@ -45,7 +45,7 @@ export const CommentForm = (props) => {
                 content: comment.content,
                 created_on: comment.created_on   
             })
-            .then(() => props.history.push(`/posts/${post_id}`))
+            .then(() => props.history.push(`/posts/${comment.post_id}`))
         } else {
             addComment({
                 post_id,
