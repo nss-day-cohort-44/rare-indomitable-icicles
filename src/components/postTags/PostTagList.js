@@ -8,10 +8,8 @@ export const PostTagList = (props) =>{
 
     useEffect(() =>{
         getPostTagsByPostId(parseInt(props.match.params.postId))
-        console.log(tagDeleted)
     }, [tagDeleted])
 
-console.log(props)
     return(
         <div>
             <h3>Selected Post's Tags</h3>

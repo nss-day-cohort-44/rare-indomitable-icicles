@@ -13,7 +13,7 @@ export const AddTagForm = (props) =>{
         const tagResults = [];
         for(const t of tags){
             for(const pt of postTagLabel){
-                if(t.label !== pt) tagResults.push(t)
+                if(pt !== t.label) tagResults.push(t)
             }
         }
     return setFilteredTagResults(tagResults);
