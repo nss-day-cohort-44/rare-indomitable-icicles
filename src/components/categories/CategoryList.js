@@ -22,7 +22,7 @@ export const CategoryList = (props) => {
                     // .filter(c => c.userId === userId)
                     .map(category => {
                             return <Category key={category.id} 
-                            category={category} 
+                            category={category} props={props} 
                         
                             />
                     })
