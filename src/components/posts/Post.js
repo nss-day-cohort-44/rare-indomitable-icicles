@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react"
 import { PostContext } from "./PostProvider"
 import { Link } from "react-router-dom"
 import './Post.css'
+import {HumanDate} from "../utils/HumanDate"
 
 
 export const Post = ({post, props}) =>{
@@ -16,7 +17,7 @@ export const Post = ({post, props}) =>{
                     pathname: `/posts/${post.id}`,
                     state: { chosenPost: post }
                 }}>title: {post.title}</Link>
-                <div>publication_date: {post.publication_date}</div>
+                <div>publication_date: {<HumanDate date={Date(post.publication_date)} />}</div>
                 <div>image_url: {post.image_url}</div>
                 <div>content: {post.content}</div>
                 <div>category: {post.category.label}</div>

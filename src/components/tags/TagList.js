@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {TagContext} from "./TagProvider"
 import {Tag} from "./TagDetails"
-import { TagForm } from './TagForm'
 import { Link, useHistory } from "react-router-dom"
 
 
