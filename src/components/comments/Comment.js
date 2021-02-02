@@ -28,7 +28,10 @@ export const Comment = ({ comment, props }) => {
                     Delete Comment
                 </button>
                 <button onClick={() => {
-                        props.history.push({ pathname: `/comments/edit/${comment.id}`, commentId: comment.id })
+                        props.history.push({ pathname: `/comments/edit/${comment.id}`,
+                        commentId: comment.id,
+                        state: { chosenPost: postId }
+                        })
                     }}>
                     Edit Comment
                 </button>
