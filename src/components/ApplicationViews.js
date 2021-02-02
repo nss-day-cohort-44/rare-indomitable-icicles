@@ -19,7 +19,7 @@ import { TagList } from "./tags/TagList";
 import { PostTagProvider } from "./postTags/PostTagProvider";
 import { PostTagList } from "./postTags/PostTagList";
 import { AddTagForm } from "./postTags/AddTagForm";
-
+import { CommentForm } from "./comments/CommentForm";
 export const ApplicationViews = () => {
   return (
     <>
@@ -64,7 +64,10 @@ export const ApplicationViews = () => {
                     path="/posts/:postId(\d+)"
                     render={(props) => <PostDetail {...props} />}
                   />
-
+                  <Route
+                    path="/posts/addcomment"
+                    render={(props) => <CommentForm {...props} />}
+                  />
                   <Route
                     exact
                     path="/comments"

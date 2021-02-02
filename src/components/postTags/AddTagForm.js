@@ -3,27 +3,27 @@ import {PostTagContext} from "./PostTagProvider"
 import {TagContext} from "../tags/TagProvider"
 
 export const AddTagForm = (props) =>{
-    const {addPostTag, getPostTagsByPostId, postTags} = useContext(PostTagContext)
+    const {addPostTag, getPostTagsByPostId, postTags, setPostTags, relatedPostTags} = useContext(PostTagContext)
     const {tags, getTags} = useContext(TagContext)
     const postTag = useRef(null)
     const [tagArrayState, setTagArray] = useState([])
     const [filteredTagResults, setFilteredTagResults] = useState([])
 
-    const checkForExistingRelationship = () =>{
-        const tagResults = [];
-        for(const t of tags){
-            for(const pt of postTagLabel){
-                if(pt !== t.label) tagResults.push(t)
-            }
-        }
-    return setFilteredTagResults(tagResults);
-    }
+    // const checkForExistingRelationship = () =>{
+    //     const tagResults = [];
+    //     for(const t of tags){
+    //         for(const pt of postTagLabel){
+    //             if(pt !== t.label) tagResults.push(t)
+    //         }
+    //     }
+    // return setFilteredTagResults(tagResults);
+    // }
 
     useEffect(() =>{
+        getPostTagsByPostId(parseInt(props.match.params.postId))
         getTags()
-        getPostTagsByPostId(props.match.params.postId)
         .then(
-            checkForExistingRelationship()
+            // checkForExistingRelationship()
         )
     },[])
 
@@ -46,10 +46,9 @@ export const AddTagForm = (props) =>{
     })
     // console.log(tagLabels)
 
-    const postTagLabel = postTags.map(pt=>{
-        return pt.tag.label
+    const postTagLabel = relatedPostTags.map(pt=>{
+        return pt.tag_id
     })
-    // console.log(postTagLabel)
 
 
 
@@ -71,23 +70,26 @@ export const AddTagForm = (props) =>{
 
         <fieldset>
                 <div className="form-group">
+                    {console.log(postTagLabel)}
+                    {console.log(tags)}
                     {
-                        filteredTagResults.map((t)=>( t.id &&
-                            <>
+
+                        tags.map((t)=>{
+                            if(!postTagLabel.find(pt=>parseInt(pt) === parseInt(t.id)))
+                          return(
+
+                              <>
                         <input type="checkbox" key={t.id} name={t.label} value={t.id} ref={postTag} onChange={e=>checkForChecked(e)}>
                         </input>
                         <label htmlFor={t.label}>{t.label}</label>
-                        </>              )
+                        </>    
+                        )  
+                                  }
                         )
                     }   
             </div>
         </fieldset>
-                <button onClick={evt=>{
 
-                    evt.preventDefault()
-                    checkForExistingRelationship()
-                }
-                }>Banging Head Against Wall</button>
                 <button type="submit"  onClick={evt => {
                 evt.preventDefault()
                 constructNewPostTag()

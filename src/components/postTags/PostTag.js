@@ -3,9 +3,17 @@ import {PostTagContext} from "./PostTagProvider"
 
 export const PostTag = ({postTags, props}) =>{
     const {deletePostTag, setTagDeleted, tagDeleted} = useContext(PostTagContext)
+
+    const confirmDelete =()=>{
+        const d = window.confirm("Would you like to delete this?")
+        if(d===true){
+            deletePostTag(postTags.id)
+        }
+     }
+     
     return(
             <div>Label: {postTags.tag.label}
-            <button onClick={()=>{deletePostTag(postTags.id, postTags.post_id); setTagDeleted(tagDeleted + 1)}}>Delete Tag From Post</button>
+            <button onClick={()=>{confirmDelete()}}>Delete Tag From Post</button>
             </div>
     )
 }
