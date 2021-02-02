@@ -13,9 +13,12 @@ import {
 import { CategoryList } from "./categories/CategoryList";
 import { CategoryForm } from "./categories/CategoryForm";
 import { PostForm } from "./posts/PostForm";
-import { TagProvider } from "./Tags/TagProvider"
-import { TagForm } from "./Tags/TagForm";
-import {TagList} from "./Tags/TagList"
+import { TagProvider } from "./tags/TagProvider";
+import { TagForm } from "./tags/TagForm";
+import { TagList } from "./tags/TagList";
+import { PostTagProvider } from "./postTags/PostTagProvider";
+import { PostTagList } from "./postTags/PostTagList";
+import { AddTagForm } from "./postTags/AddTagForm";
 
 export const ApplicationViews = () => {
   return (
@@ -27,72 +30,82 @@ export const ApplicationViews = () => {
         }}
       >
         <TagProvider>
-        <PostProvider>
-          <CategoryProvider>
-            <CommentProvider>
-              <Route
-                path="/posts/edit/:postId(\d+)"
-                render={(props) => <PostForm {...props} />}
-              />
-              <Route
-                path="/posts/create"
-                render={(props) => <PostForm {...props} />}
-              />
-              <Route
-                exact
-                path="/allposts"
-                render={(props) => <AllPostList {...props} />}
-              />
-              <Route
-                exact
-                path="/posts"
-                render={(props) => <UserPostList {...props} />}
-              />
-              <Route
-                path="/posts/:postId(\d+)"
-                render={(props) => <PostDetail {...props} />}
-              />
+          <PostTagProvider>
+            <PostProvider>
+              <CategoryProvider>
+                <CommentProvider>
+                  <Route
+                    path="/posts/manage_tags/:postId(\d+)"
+                    render={(props) => <PostTagList {...props} />}
+                  />
+                  <Route
+                    path="/posts/add_tags/:postId(\d+)"
+                    render={(props) => <AddTagForm {...props} />}
+                  />
+                  <Route
+                    path="/posts/edit/:postId(\d+)"
+                    render={(props) => <PostForm {...props} />}
+                  />
+                  <Route
+                    path="/posts/create"
+                    render={(props) => <PostForm {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/allposts"
+                    render={(props) => <AllPostList {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/posts"
+                    render={(props) => <UserPostList {...props} />}
+                  />
+                  <Route
+                    path="/posts/:postId(\d+)"
+                    render={(props) => <PostDetail {...props} />}
+                  />
 
-              <Route
-                exact
-                path="/comments"
-                render={(props) => <CommentList {...props} />}
-              />
+                  <Route
+                    exact
+                    path="/comments"
+                    render={(props) => <CommentList {...props} />}
+                  />
 
-              <Route
-                exact
-                path="/categories"
-                render={(props) => <CategoryList {...props} />}
-              />
+                  <Route
+                    exact
+                    path="/categories"
+                    render={(props) => <CategoryList {...props} />}
+                  />
 
-              <Route
-                exact
-                path="/categories/create"
-                render={(props) => <CategoryForm {...props} />}
-              />
-              <Route
-                path="/categories/edit/:categoryId(\d+)"
-                render={(props) => <CategoryForm {...props} />}
-              />
-              <Route 
-                exact 
-                path="/tags" 
-                render={ (props) => <TagList {...props} />} 
-              />
-              <Route 
-                exact
-                path="/tags/create" 
-                render={ (props) => <TagForm {...props} />} 
-              />
-              <Route 
-                exact 
-                path="/tags/edit/:id(\d+)" 
-                render={ (props) => <TagForm {...props} />} 
-              /> 
-            </CommentProvider>
-          </CategoryProvider>
-        </PostProvider>
-    </TagProvider>
+                  <Route
+                    exact
+                    path="/categories/create"
+                    render={(props) => <CategoryForm {...props} />}
+                  />
+                  <Route
+                    path="/categories/edit/:categoryId(\d+)"
+                    render={(props) => <CategoryForm {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/tags"
+                    render={(props) => <TagList {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/tags/create"
+                    render={(props) => <TagForm {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/tags/edit/:id(\d+)"
+                    render={(props) => <TagForm {...props} />}
+                  />
+                </CommentProvider>
+              </CategoryProvider>
+            </PostProvider>
+          </PostTagProvider>
+        </TagProvider>
       </main>
     </>
   );
