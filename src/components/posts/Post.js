@@ -7,7 +7,6 @@ import './Post.css'
 export const Post = ({post, props}) =>{
     // when user provider is provided, if statement will need to be altered to user.id = localstorage.getItem(rare_user_id)
     if(localStorage.getItem("rare_user_id")){
-        console.log(post)
         return(
             
             <div className="posts">
@@ -21,6 +20,14 @@ export const Post = ({post, props}) =>{
                 <div>image_url: {post.image_url}</div>
                 <div>content: {post.content}</div>
                 <div>category: {post.category.label}</div>
+                <Link to={{
+                    pathname: `/posts/add_tags/${post.id}`,
+                    state:{chosenPost: post}
+                }}>Add Tags</Link>
+                <Link to={{
+                    pathname: `/posts/manage_tags/${post.id}`,
+                    state:{chosenPost: post}
+                }}>Manage Tags</Link>
             </div>
         )
     }else{
