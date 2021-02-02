@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 export const PostDetail = (props) => {
     const { posts, getSinglePost, post, setPost, deletePost } = useContext(PostContext)
-    const { comments, relatedComments, setRelatedComments, getCommentsByPostId } = useContext(CommentContext)
+    const { comments, relatedComments, getCommentsByPostId } = useContext(CommentContext)
     
     console.log(props)
 
@@ -17,13 +17,11 @@ export const PostDetail = (props) => {
         getSinglePost(postId)
         getCommentsByPostId(postId)
             .then(setPost(post))
-            .then(setRelatedComments(relatedComments))
     }, [])
     
     useEffect(() => {
         const postId = parseInt(props.match.params.postId)
         getCommentsByPostId(postId)
-            .then(setRelatedComments(relatedComments))
     }, [comments])
     
     console.log(post)

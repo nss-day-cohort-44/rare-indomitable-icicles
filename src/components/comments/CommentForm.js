@@ -6,7 +6,7 @@ export const CommentForm = (props) => {
     const { addComment, updateComment, comments, getComments } = useContext(CommentContext)
 
     const [ comment, setComment ] = useState({})
-// debugger
+
     const editMode = props.match.params.hasOwnProperty("commentId")
 
     const chosenPost = props.location.state.chosenPost
