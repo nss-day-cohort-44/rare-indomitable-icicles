@@ -14,7 +14,7 @@ export const UserList = (props) => {
       <p>User List</p>
       <ul>
         {users.map((user) => (
-          <li>
+          <li key={user.id}>
             <Link to={`/users/${user.id}`}>
               {user.first_name} {user.last_name}
             </Link>
