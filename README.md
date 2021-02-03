@@ -18,16 +18,16 @@ Rare is a publishing platform and social application that allows authenticated u
  
 ### To Begin installing the Client-Side Repo, complete the following steps: 
  
-Create a directory from which to deploy the application. 	
+1. Create a directory from which to deploy the application. 	
 ```mkdir RARE```
  
-Within RARE, create two sub-directories, CLIENT and SERVER 
+2. Within RARE, create two sub-directories, CLIENT and SERVER 
 
-	```mkdir CLIENT```
-	```mkdir SERVER```
+```mkdir CLIENT```
+```mkdir SERVER```
 
 3.   Navigate into the CLIENT sub-directory. 
-	```cd CLIENT```
+```cd CLIENT```
 
 4.   Enter the following commands: 
 
@@ -35,7 +35,7 @@ Within RARE, create two sub-directories, CLIENT and SERVER
 		
 ```npm install``` 
  
- ```npm start```
+```npm start```
  
 ## **Technologies Used**
 This application was built using the React JavaScript library, and was bootstrapped with create-react-app. The only package used in the production site outside of those provided by create-react-app was react-router-dom.
