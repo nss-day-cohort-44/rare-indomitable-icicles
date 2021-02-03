@@ -1,4 +1,4 @@
-## **Description**
+# **Description**
 Rare is a publishing platform and social application that allows authenticated users to interact in a social forum by creating posts, associated tags and categories to their posts for relevance and filtering, and create comments on each other’s posts in order to interact directly with each other.
  
  
@@ -7,6 +7,9 @@ Rare is a publishing platform and social application that allows authenticated u
 * Users can create, edit, and delete Tags and Categories to a Post in order to better classify their Posts. Both Tags and Categories can be managed on individual posts or as list views that include the same capabilities.
 * Users can create, edit, and delete Comments on their Posts and other user’s Posts in order to take part in a discussion regarding the post.
 * Users have the capability to view all of their Posts as a list, or view Posts by all users as a list.
+
+
+![myPosts.png](myPosts.png)
 
 ## **Setup Client Server**
  
@@ -19,11 +22,13 @@ Rare is a publishing platform and social application that allows authenticated u
 ### To Begin installing the Client-Side Repo, complete the following steps: 
  
 1. Create a directory from which to deploy the application. 	
+
 ```mkdir RARE```
  
 2. Within RARE, create two sub-directories, CLIENT and SERVER 
 
 ```mkdir CLIENT```
+
 ```mkdir SERVER```
 
 3.   Navigate into the CLIENT sub-directory. 
@@ -43,7 +48,8 @@ The API server is powered by SQLite, watchgod and Python.
 All styling was accomplished with vanilla CSS3 written by us.
 ## **Planning Resources**
 Below is the planning document we created before implementing this project. This resource proved to be valuable during development as it constantly gave us a guide to what needed to happen and in which chronology. The completed project bore a striking similarity to our plan.
-* ERD
+
+![RareServerERD.png](RareServerERD.png)
  
 ## **Authors**
 Kyle Simmons
