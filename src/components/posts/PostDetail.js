@@ -7,32 +7,31 @@ import { Link } from "react-router-dom"
 
 
 export const PostDetail = (props) => {
-    const { posts, getSinglePost, post, setPost, deletePost } = useContext(PostContext)
+    const { getSinglePost, post, setPost, deletePost } = useContext(PostContext)
     const { comments, relatedComments, getCommentsByPostId } = useContext(CommentContext)
-    
+
     console.log(props)
     const postId = parseInt(props.match.params.postId)
     useEffect(() => {
-        const postId = parseInt(props.match.params.postId)
-        debugger
+        // const postId = parseInt(props.match.params.postId)
         getSinglePost(postId)
         getCommentsByPostId(postId)
             .then(setPost(post))
     }, [])
 
 
-    const confirmDelete =()=>{
-       const d = window.confirm("Would you like to delete this?")
-       if(d===true){
-           deletePost(postId).then(() => { props.history.push("/posts") })
-       }
+    const confirmDelete = () => {
+        const d = window.confirm("Would you like to delete this?")
+        if (d === true) {
+            deletePost(postId).then(() => { props.history.push("/posts") })
+        }
     }
-    
+
     useEffect(() => {
         const postId = parseInt(props.match.params.postId)
         getCommentsByPostId(postId)
     }, [comments])
-    
+
     console.log(post)
     return (
         <>
@@ -51,7 +50,7 @@ export const PostDetail = (props) => {
             <Link to={{
                 pathname: `/posts/addcomment`,
                 state: { chosenPost: post }
-                }}>Add a Comment</Link>
+            }}>Add a Comment</Link>
         </>
     )
 }

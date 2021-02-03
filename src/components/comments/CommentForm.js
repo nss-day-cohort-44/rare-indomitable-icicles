@@ -40,7 +40,7 @@ export const CommentForm = (props) => {
         if (editMode) {
             updateComment({
                 id: comment.id,
-                post_id: post_id,
+                post_id: comment.post_id,
                 author_id,
                 content: comment.content,
                 created_on: comment.created_on   
@@ -56,7 +56,7 @@ export const CommentForm = (props) => {
             .then(() => props.history.push(`/posts/${post_id}`))
         }
     } 
-            
+
     return (
         <form className="commentForm">
             <h2 className="commentForm__title">{editMode ? "Update Comment" : "New Comment"}</h2>
