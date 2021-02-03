@@ -10,15 +10,15 @@ export const Comment = ({ comment, props }) => {
     if (localStorage.getItem("rare_user_id")) {
         return (
             <div>
-                Comment content: {comment.content}
-                Relevant post id: {comment.post_id}
-                Author id: {comment.author_id}
-                Date Created on: {date.toLocaleString("en-US", {
+                <div>Comment content: {comment.content}</div>
+                <div>Relevant post id: {comment.post_id}</div>
+                <div>Author: {comment.username}</div>
+                <div>Date Created on: {date.toLocaleString("en-US", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
                 timeZone: "America/Chicago",
-            })}
+            })}</div>
                 <button onClick={() => {
                     deleteComment(comment.id, comment.post_id)
                         .then(() => {
