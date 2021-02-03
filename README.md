@@ -31,11 +31,11 @@ Within RARE, create two sub-directories, CLIENT and SERVER
 
 4.   Enter the following commands: 
 
-```git clone git@github.com:nss-day-cohort-44/rare-rabid-sharks.git .```        *note the single dot preceded by a single space* 
+```git clone git@github.com:nss-day-cohort-44/rare-rabid-sharks.git .```        _note the single dot preceded by a single space_
 		
 ```npm install``` 
  
- 	```npm start```
+ ```npm start```
  
 ## **Technologies Used**
 This application was built using the React JavaScript library, and was bootstrapped with create-react-app. The only package used in the production site outside of those provided by create-react-app was react-router-dom.
