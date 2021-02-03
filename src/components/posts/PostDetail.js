@@ -14,6 +14,7 @@ export const PostDetail = (props) => {
     const postId = parseInt(props.match.params.postId)
     useEffect(() => {
         const postId = parseInt(props.match.params.postId)
+        debugger
         getSinglePost(postId)
         getCommentsByPostId(postId)
             .then(setPost(post))

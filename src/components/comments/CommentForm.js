@@ -40,7 +40,7 @@ export const CommentForm = (props) => {
         if (editMode) {
             updateComment({
                 id: comment.id,
-                post_id: comment.post_id,
+                post_id: post_id,
                 author_id,
                 content: comment.content,
                 created_on: comment.created_on   
