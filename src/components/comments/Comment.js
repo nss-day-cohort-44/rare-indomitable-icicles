@@ -5,25 +5,30 @@ export const Comment = ({ comment, props }) => {
 
     const { deleteComment } = useContext(CommentContext)
     const postId = parseInt(comment.post_id)
-    const date = new Date(comment.created_on)    
+    const date = new Date(comment.created_on)
+
+    const confirmDeleteComment = () => {
+        const prompt = window.confirm("Are you sure you want to delete this comment?")
+        if (prompt === true) {
+            deleteComment(comment.id)
+            .then(() => { props.history.push(`/posts/${postId}`) })
+        }
+    }
 
     if (localStorage.getItem("rare_user_id")) {
         return (
             <div>
-                Comment content: {comment.content}
-                Relevant post id: {comment.post_id}
-                Author id: {comment.author_id}
-                Date Created on: {date.toLocaleString("en-US", {
-                year: "numeric",
-                month: "numeric",
-                day: "numeric",
-                timeZone: "America/Chicago",
-            })}
+                <div>Comment content: {comment.content}</div>
+                <div>Relevant post id: {comment.post_id}</div>
+                <div>Author: {comment.username}</div>
+                <div>Date Created on: {date.toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                    timeZone: "America/Chicago",
+                })}</div>
                 <button onClick={() => {
-                    deleteComment(comment.id, comment.post_id)
-                        .then(() => {
-                            props.history.push(`/posts/${postId}`)
-                        })
+                    confirmDeleteComment()
                 }}>
                     Delete Comment
                 </button>
