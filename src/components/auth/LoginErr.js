@@ -10,13 +10,13 @@ export const Login = (props) => {
   const history = useHistory()
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+    return fetch(`http://localhost:8000/users?email=${email.current.value}`)
       .then((_) => _.json())
       .then((user) => ("id" in user ? user : false))
   }
 
   const getall = () => {
-    return fetch(`http://localhost:8088/users`).then((res) =>
+    return fetch(`http://localhost:8000/users`).then((res) =>
       res.json().then((users) => console.log(users))
     )
   }
