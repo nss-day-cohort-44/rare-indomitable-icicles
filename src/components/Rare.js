@@ -5,33 +5,20 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
-export const Rare = () => (
+export const Rare = (props) => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("rare_user_id")) {
+            if (localStorage.getItem("lu_token")) {
                 return <>
-                    <NavBar />
-                    <ApplicationViews />
+                    <Route render={NavBar} />
+                    <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {
                 return <Redirect to="/login" />
             }
         }} />
 
-        <Route path="/login" render={() => {
-            if (localStorage.getItem("rare_user_id")) {
-                return <Redirect to="/" />
-            } else {
-                return <Login />
-            }
-        }} />
-
-        <Route path="/register" render={() => {
-            if (localStorage.getItem("rare_user_id")) {
-                return <Redirect to="/" />
-            } else {
-                return <Register />
-            }
-        }} />
+        <Route path="/login" render={Login} />
+        <Route path="/register" render={Register} />
     </>
 )
