@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import { PostContext } from "./PostProvider"
 import { Link } from "react-router-dom"
 import './Post.css'
-import {HumanDate} from "../utils/HumanDate"
+import { HumanDate } from "../utils/HumanDate"
 
 
 export const Post = ({post, props}) =>{
@@ -11,7 +11,7 @@ export const Post = ({post, props}) =>{
         return(
             
             <div className="posts">
-               <div>userid: {post.user_id}</div>
+                <div>userid: {post.user_id}</div>
                 <div>category_id: {post.category_id}</div>
                 <Link to={{
                     pathname: `/posts/${post.id}`,
@@ -23,16 +23,16 @@ export const Post = ({post, props}) =>{
                 <div>category: {post.category.label}</div>
                 <Link to={{
                     pathname: `/posts/add_tags/${post.id}`,
-                    state:{chosenPost: post}
+                    state: { chosenPost: post }
                 }}>Add Tags</Link>
                 <Link to={{
                     pathname: `/posts/manage_tags/${post.id}`,
-                    state:{chosenPost: post}
+                    state: { chosenPost: post }
                 }}>Manage Tags</Link>
             </div>
         )
-    }else{
-        return(
+    } else {
+        return (
             <div>
                 U havent made any posts
             </div>
