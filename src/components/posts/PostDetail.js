@@ -41,10 +41,10 @@ export const PostDetail = (props) => {
             <div>{post.content}</div>
             <div>{post.category.label}</div>
             <div>{post.username}</div>
-            { parseInt(localStorage.getItem("rare_user_id")) === post.user_id ? <>
-                <button onClick={() => { confirmDelete() }}>Delete Post</button> 
+            { parseInt(localStorage.getItem("rare_token_id")) === post.user_id ? <>
+                <button onClick={() => { confirmDelete() }}>Delete Post</button>
                 <button onClick={() => { props.history.push(`/posts/edit/${post.id}`) }}>
-                Edit Post</button> </> : <> {""}</>
+                    Edit Post</button> </> : <> {""}</>
             }
             <h3>Comments</h3>
             {
