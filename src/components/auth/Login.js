@@ -8,32 +8,8 @@ export const Login = props => {
     const password = React.createRef()
     const invalidDialog = React.createRef()
 
-<<<<<<< HEAD
-    return fetch("http://127.0.0.1:8000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({
-        email: email.current.value,
-        password: password.current.value,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if ("valid" in res && res.valid) {
-          localStorage.setItem("rare_user_id", res.token)
-          history.push("/")
-        } else {
-          invalidDialog.current.showModal()
-        }
-      })
-  }
-=======
     const handleLogin = (e) => {
         e.preventDefault()
->>>>>>> main
 
         return fetch("http://127.0.0.1:8000/login", {
             method: "POST",
