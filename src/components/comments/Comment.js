@@ -15,7 +15,7 @@ export const Comment = ({ comment, props }) => {
         }
     }
 
-    if (localStorage.getItem("rare_user_id")) {
+    if (localStorage.getItem("rare_token")) {
         return (
             <div>
                 <div>Comment content: {comment.content}</div>
