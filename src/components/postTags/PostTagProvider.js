@@ -8,20 +8,20 @@ export const PostTagProvider = (props) =>{
     const [relatedPostTags, setRelatedPostTags] = useState([])
 
     const getAllPostTags = () =>{
-        return fetch("http://localhost:8088/post_tags")
+        return fetch("http://localhost:8000/post_tags")
         .then(res=> res.json())
         .then(setPostTags)
     }
 
     const deletePostTag = (postTagId) =>{
-        return fetch (`http://localhost:8088/post_tags/${postTagId}`, {
+        return fetch (`http://localhost:8000/post_tags/${postTagId}`, {
             method: "DELETE"
         })
         .then(getAllPostTags)
     }
 
     const addPostTag = (postTag) => {
-        return fetch("http://localhost:8088/post_tags", {
+        return fetch("http://localhost:8000/post_tags", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ export const PostTagProvider = (props) =>{
     }
 
     const getPostTagsByPostId = (postId) =>{
-        return fetch(`http://localhost:8088/post_tags?post_id=${postId}`)
+        return fetch(`http://localhost:8000/post_tags?post_id=${postId}`)
             .then(res => res.json())
             .then(setRelatedPostTags)
     }
