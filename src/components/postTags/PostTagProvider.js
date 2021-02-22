@@ -8,21 +8,14 @@ export const PostTagProvider = (props) => {
     const [relatedPostTags, setRelatedPostTags] = useState([])
 
     const getAllPostTags = () => {
-        return fetch("http://localhost:8000/post_tags", {
-            headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_token")}`
-            }
-        })
+        return fetch("http://localhost:8000/post_tags")
             .then(res => res.json())
             .then(setPostTags)
     }
 
     const deletePostTag = (postTagId) => {
         return fetch(`http://localhost:8000/post_tags/${postTagId}`, {
-            method: "DELETE",
-            headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_token")}`
-            },
+            method: "DELETE"
         })
             .then(getAllPostTags)
     }
@@ -31,8 +24,7 @@ export const PostTagProvider = (props) => {
         return fetch("http://localhost:8000/post_tags", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_token")}`
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(postTag)
         })
@@ -40,11 +32,7 @@ export const PostTagProvider = (props) => {
     }
 
     const getPostTagsByPostId = (postId) => {
-        return fetch(`http://localhost:8000/post_tags?post_id=${postId}`, {
-            headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_token")}`
-            }
-        })
+        return fetch(`http://localhost:8000/post_tags?post_id=${postId}`)
             .then(res => res.json())
             .then(setRelatedPostTags)
     }
