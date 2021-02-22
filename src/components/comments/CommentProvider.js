@@ -1,31 +1,41 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 
 export const CommentContext = React.createContext()
 
 export const CommentProvider = (props) => {
-    const [ comments, setComments ] = useState([])
-    const [ relatedComments, setRelatedComments ] = useState([])
-    const [ comment, setComment ] = useState({})
+    const [comments, setComments] = useState([])
+    const [relatedComments, setRelatedComments] = useState([])
+    const [comment, setComment] = useState({})
+
+    const getComments = () => {
+        return fetch('http://localhost:8000/comments', {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`
+            }
+        })
+            .then(res => res.json())
+            .then(setComments)
+    }
 
     const addComment = (comments) => {
         return fetch("http://localhost:8000/comments", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`
             },
             body: JSON.stringify(comments)
         })
-        .then(getComments)
+            .then(getComments)
     }
 
-    const getComments = () => {
-        return fetch('http://localhost:8000/comments')
-        .then(res => res.json())
-        .then(setComments)
-    }
 
     const getSingleComment = (id) => {
-        return fetch(`http://localhost:8000/comments/${id}`)
+        return fetch(`http://localhost:8000/comments/${id}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`
+            }
+        })
             .then(res => res.json())
             .then(setComment)
     }
@@ -39,12 +49,12 @@ export const CommentProvider = (props) => {
     const updateComment = (comment) => {
         return fetch(`http://localhost:8000/comments/${comment.id}`, {
             method: "PUT",
-            headers:{
+            headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(comment)
         })
-        .then(getComments)
+            .then(getComments)
     }
 
     const deleteComment = (id) => {
@@ -53,10 +63,10 @@ export const CommentProvider = (props) => {
         })
             .then(getComments)
     }
-    
-    return(
+
+    return (
         <CommentContext.Provider value={{
-            comment, comments, relatedComments, addComment, getComments, getSingleComment, getCommentsByPostId, updateComment, deleteComment, 
+            comment, comments, relatedComments, addComment, getComments, getSingleComment, getCommentsByPostId, updateComment, deleteComment,
             setComments, setComment, setRelatedComments
         }}>
             {props.children}
