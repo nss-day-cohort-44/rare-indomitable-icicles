@@ -6,7 +6,11 @@ export const CategoryProvider = (props) => {
     const [categories, setCategories] = useState([])
 
     const getCategories = () => {
-        return fetch("http://localhost:8000/categories")
+        return fetch("http://localhost:8000/categories", {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`     
+            }       
+        })
             .then(res => res.json())
             .then(setCategories)
     }
@@ -15,7 +19,8 @@ export const CategoryProvider = (props) => {
         return fetch("http://localhost:8000/categories", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`  
             },
             body: JSON.stringify(category)
         })
@@ -24,7 +29,11 @@ export const CategoryProvider = (props) => {
 
     const removeCategory = categoryId => {
         return fetch(`http://localhost:8000/categories/${categoryId}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`  
+            },
         })
             .then(getCategories)
     }
@@ -33,6 +42,7 @@ export const CategoryProvider = (props) => {
         return fetch(`http://localhost:8000/categories/${category.id}`, {
             method: "PUT",
             headers: {
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`,  
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(category)
