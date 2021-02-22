@@ -4,7 +4,7 @@ import {Comment} from "./Comment"
 
 export const CommentList = (props) => {
     const { deleteComment, getComments, addComment, comments } = useContext(CommentContext)
-debugger
+// debugger
     useEffect(() => {
         console.log("CommentsList View")
         getComments()
