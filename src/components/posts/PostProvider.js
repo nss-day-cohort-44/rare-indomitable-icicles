@@ -16,10 +16,14 @@ export const PostProvider = (props) =>{
             .then(setPosts)
     }
 
-    const getPostsByUserId = (userId) =>{
-        userId = localStorage.getItem("rare_user_id")
-        return fetch(`http://localhost:8000/posts?user_id=${userId}`)
-            .then(res => res.json())
+    const getPostsByUserId = () =>{
+        
+        return fetch(`http://localhost:8000/posts?sortby=user`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("rare_token")}`
+            }
+        })
+            .then(response => response.json())
             .then(setPosts)
     }
 
