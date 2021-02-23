@@ -13,17 +13,39 @@ useEffect(() => {
     getTags()
 }, [])
 
+const sorted = tags.sort((a, b) => {
+    var tagA = a.label.toUpperCase()
+    var tagB = b.label.toUpperCase()
+if (tagA > tagB) {
+    return 1
+}
+if (tagA < tagB) {
+    return -1
+}
+if (tagA = tagB) {
+    return 0
+}
+})
+
 return (     
-    <div> 
-
-    <h3>Tags</h3>
-
-    <Link to="/tags/create">Create</Link>
-
-    {
-        tags.map(tagObj =>  <Tag key={tagObj.id} tag={tagObj} props={props}/> )
-    }
-
-    </div> 
+    <>
+        
+            <div className="row">
+            <h1>Tags</h1>
+                <button onClick={() => {
+                    props.history.push(`/tags/create`)
+                }}>Create a new tag
+                </button>
+                <div className="column">
+                    {sorted.map(tag => {
+                            return <Tag key={tag.id} 
+                            tag={tag} props={props} 
+                        
+                            />
+                    })
+                    }
+                </div>
+            </div>
+        </>
 )
 }

@@ -53,6 +53,7 @@ export const ApplicationViews = () => {
                     />
                     <Route
                       exact
+<<<<<<< HEAD
                       path="/allposts"
                       render={(props) => <AllPostList {...props} />}
                     />
@@ -60,6 +61,10 @@ export const ApplicationViews = () => {
                       exact
                       path="/myposts"
                       render={(props) => <UserPostList {...props} />}
+=======
+                      path="/posts"
+                      render={(props) => <AllPostList {...props} />}
+>>>>>>> main
                     />
                     <Route
                       path="/posts/:postId(\d+)"
@@ -68,6 +73,12 @@ export const ApplicationViews = () => {
                     <Route
                       path="/posts/addcomment"
                       render={(props) => <CommentForm {...props} />}
+                    />
+                    {/* route below is for testing only */}
+                    <Route
+                      exact
+                      path="/comments"
+                      render={(props) => <CommentList {...props} />}
                     />
                     <Route
                       path="/comments/edit/:commentId(\d+)"
