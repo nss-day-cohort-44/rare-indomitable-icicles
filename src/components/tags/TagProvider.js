@@ -7,13 +7,14 @@ export const TagProvider = (props) => {
   const [tags, setTags] = useState([])
 
   const getTags = () => {
-		return fetch("http://localhost:8000/tags", {
-      headers:{
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }
-    })
-		.then(res => res.json())
-		.then(setTags);
+    
+	return fetch("http://localhost:8000/tags", {
+    headers:{
+       "Authorization": `Token ${localStorage.getItem("rare_token")}`
+    }
+  })
+	.then(res => res.json())
+	.then(setTags);
 	}
 
   const getSingleTag = (id) =>{
@@ -39,14 +40,14 @@ export const TagProvider = (props) => {
   }
     
   const deleteTag = (id) => {
-    return fetch(`http://localhost:8000/tags/${id}`, {
-      method: "DELETE",
-      headers:{
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+        return fetch(`http://localhost:8000/tags/${id}`, {
+          method: "DELETE",
+          headers:{
+            "Authorization": `Token ${localStorage.getItem("rare_token")}`
+          }
+        })
+           .then(getTags)  
       }
-    })
-    .then(getTags)  
-  }
 
   const updateTag = (tag) => {
     return fetch(`http://localhost:8000/tags/${tag.id}`, {
@@ -64,5 +65,10 @@ export const TagProvider = (props) => {
 		tags, getTags, addTag, deleteTag, updateTag, getSingleTag 
 	}}>
 		{props.children}
-  </TagContext.Provider>
+	</TagContext.Provider>
+
+
 }
+
+
+
