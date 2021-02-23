@@ -58,7 +58,7 @@ export const ApplicationViews = () => {
                     />
                     <Route
                       exact
-                      path="/posts"
+                      path="/myposts"
                       render={(props) => <UserPostList {...props} />}
                     />
                     <Route
