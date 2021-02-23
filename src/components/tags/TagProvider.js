@@ -24,7 +24,7 @@ export const TagProvider = (props) => {
     })
         .then(res => res.json())
         .then(setTags)
-}
+  }
 
 	const addTag = (tag) => {
 		return fetch("http://localhost:8000/tags", {
@@ -36,32 +36,33 @@ export const TagProvider = (props) => {
 			body: JSON.stringify(tag)
 		})
 		.then(getTags)
-    }
+  }
     
-    const deleteTag = (id) => {
-        return fetch(`http://localhost:8000/tags/${id}`, {
-          method: "DELETE",
-          headers:{
-            "Authorization": `Token ${localStorage.getItem("rare_token")}`
-          }
-        })
-           .then(getTags)  
-         
-
-      const updateTag = (tag) => {
-        return fetch(`http://localhost:8000/tags/${tag.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_token")}`
-          },
-          body: JSON.stringify(tag)
-        })
-          .then(getTags)
+  const deleteTag = (id) => {
+    return fetch(`http://localhost:8000/tags/${id}`, {
+      method: "DELETE",
+      headers:{
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
       }
+    })
+    .then(getTags)  
+  }
+
+  const updateTag = (tag) => {
+    return fetch(`http://localhost:8000/tags/${tag.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      },
+      body: JSON.stringify(tag)
+      })
+      .then(getTags)
+  }
 
 	return <TagContext.Provider value = {{
 		tags, getTags, addTag, deleteTag, updateTag, getSingleTag 
 	}}>
 		{props.children}
-	</TagContext.Provider>
+  </TagContext.Provider>
+}
