@@ -4,12 +4,8 @@ import { Post } from "./Post"
 import { Link } from "react-router-dom"
 
 
-<<<<<<< HEAD
 export const UserPostList = (props) =>{
     // debugger
-=======
-export const UserPostList = (props) => {
->>>>>>> main
     const { posts, getPostsByUserId } = useContext(PostContext)
     
     

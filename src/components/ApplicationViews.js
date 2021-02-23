@@ -53,7 +53,6 @@ export const ApplicationViews = () => {
                     />
                     <Route
                       exact
-<<<<<<< HEAD
                       path="/allposts"
                       render={(props) => <AllPostList {...props} />}
                     />
@@ -61,10 +60,6 @@ export const ApplicationViews = () => {
                       exact
                       path="/myposts"
                       render={(props) => <UserPostList {...props} />}
-=======
-                      path="/posts"
-                      render={(props) => <AllPostList {...props} />}
->>>>>>> main
                     />
                     <Route
                       path="/posts/:postId(\d+)"
