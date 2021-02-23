@@ -11,11 +11,11 @@ export const Comment = ({ comment, props }) => {
         const prompt = window.confirm("Are you sure you want to delete this comment?")
         if (prompt === true) {
             deleteComment(comment.id)
-            .then(() => { props.history.push(`/posts/${postId}`) })
+            .then(() => { props.history.push(`/comments`) })
         }
     }
 
-    if (localStorage.getItem("rare_user_id")) {
+    if (localStorage.getItem("rare_token")) {
         return (
             <div>
                 <div>Comment content: {comment.content}</div>
