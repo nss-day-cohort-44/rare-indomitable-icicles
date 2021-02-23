@@ -4,16 +4,16 @@ export const TagContext = React.createContext()
 
 export const TagProvider = (props) => {
 
-    const [tags, setTags] = useState([])
+  const [tags, setTags] = useState([])
 
-    const getTags = () => {
-		return fetch("http://localhost:8000/tags", {
-      headers:{
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }
-    })
-		.then(res => res.json())
-		.then(setTags);
+  const getTags = () => {
+	return fetch("http://localhost:8000/tags", {
+    headers:{
+       "Authorization": `Token ${localStorage.getItem("rare_token")}`
+    }
+  })
+	.then(res => res.json())
+	.then(setTags);
 	}
 
   const getSingleTag = (id) =>{
@@ -49,7 +49,7 @@ export const TagProvider = (props) => {
          
       }
 
-      const updateTag = (tag) => {
+    const updateTag = (tag) => {
         return fetch(`http://localhost:8000/tags/${tag.id}`, {
           method: "PUT",
           headers: {
