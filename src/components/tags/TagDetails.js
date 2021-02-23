@@ -14,7 +14,7 @@ export const Tag = ({ tag, props }) => {
         }
      }
 
-    if (localStorage.getItem("rare_user_id")) {
+    if (localStorage.getItem("rare_token")) {
         return (
             <div>
                 {tag.label}
