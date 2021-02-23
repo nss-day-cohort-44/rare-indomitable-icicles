@@ -66,5 +66,6 @@ export const TagProvider = (props) => {
 	}}>
 		{props.children}
 	</TagContext.Provider>
+
 }
 
