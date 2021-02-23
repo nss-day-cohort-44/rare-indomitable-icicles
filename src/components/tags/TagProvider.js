@@ -4,9 +4,9 @@ export const TagContext = React.createContext()
 
 export const TagProvider = (props) => {
 
-    const [tags, setTags] = useState([])
+  const [tags, setTags] = useState([])
 
-    const getTags = () => {
+  const getTags = () => {
 		return fetch("http://localhost:8000/tags", {
       headers:{
         "Authorization": `Token ${localStorage.getItem("rare_token")}`
@@ -47,7 +47,6 @@ export const TagProvider = (props) => {
         })
            .then(getTags)  
          
-      }
 
       const updateTag = (tag) => {
         return fetch(`http://localhost:8000/tags/${tag.id}`, {
@@ -66,5 +65,3 @@ export const TagProvider = (props) => {
 	}}>
 		{props.children}
 	</TagContext.Provider>
-}
-
