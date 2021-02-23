@@ -3,10 +3,12 @@ import { Link } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = (props) => {
+    
+    
     return (
         <ul className="navbar">
             <li className="nav-item">
-                <Link className="nav-link" to="/posts">Posts</Link>
+                <Link className="nav-link" to="/myposts">My Posts</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/categories">Categories</Link>

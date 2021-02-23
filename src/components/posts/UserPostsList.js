@@ -4,8 +4,11 @@ import { Post } from "./Post"
 import { Link } from "react-router-dom"
 
 
-export const UserPostList = (props) => {
+export const UserPostList = (props) =>{
+    // debugger
     const { posts, getPostsByUserId } = useContext(PostContext)
+    
+    
 
     useEffect(() => {
         getPostsByUserId()
