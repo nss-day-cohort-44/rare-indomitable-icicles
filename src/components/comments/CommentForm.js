@@ -12,7 +12,7 @@ export const CommentForm = (props) => {
     const chosenPost = props.location.state.chosenPost
 
     const post_id = parseInt(chosenPost.id)
-    const author_id = parseInt(localStorage.getItem("rare_user_id"))
+    const author_id = parseInt(localStorage.getItem("rare_token"))
 
     const handleControlledInputChange = (event) => {
         const newComment = Object.assign({}, comment)
@@ -35,7 +35,7 @@ export const CommentForm = (props) => {
     useEffect(() =>{
         getCommentInEditMode()
     }, [comments])
-    
+    // debugger
     const constructNewComment = () => {
         if (editMode) {
             updateComment({
@@ -45,7 +45,7 @@ export const CommentForm = (props) => {
                 content: comment.content,
                 created_on: comment.created_on   
             })
-            .then(() => props.history.push(`/posts/${comment.post_id}`))
+            .then(() => props.history.push(`/comments`))
         } else {
             addComment({
                 post_id,
@@ -53,7 +53,7 @@ export const CommentForm = (props) => {
                 content: comment.content,
                 created_on: Date.now()
             })
-            .then(() => props.history.push(`/posts/${post_id}`))
+            .then(() => props.history.push(`/comments`))
         }
     } 
 
