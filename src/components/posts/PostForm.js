@@ -20,7 +20,7 @@ export const PostForm = (props) => {
     const category = useRef(null)
     const title = useRef(null)
     const publication_date = useRef(null)
-    const image_url = useRef(null)
+    const image = useRef(null)
     const content = useRef(null)
     const postTag = useRef(null)
 
@@ -72,7 +72,7 @@ export const PostForm = (props) => {
                 category_id: parseInt(formPost.category_id),
                 title: formPost.title,
                 publication_date: Date.now(),
-                image_url: formPost.image_url,
+                image: formPost.image,
                 content: formPost.content,
                 approved: true
             })
@@ -84,7 +84,7 @@ export const PostForm = (props) => {
                 category_id: parseInt(formPost.category_id),
                 title: formPost.title,
                 publication_date: Date.now(),
-                image_url: formPost.image_url,
+                image: formPost.image,
                 content: formPost.content,
                 approved: true
             }, tagArrayState)
@@ -109,10 +109,10 @@ export const PostForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Image Url:</label>
-                    <input type="text" name="image_url" required autoFocus className="form-control"
+                    <input type="text" name="image" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Image Url"
-                        defaultValue={formPost.image_url}
+                        defaultValue={formPost.image}
                         onChange={handleControlledInputChange}
                     />
                 </div>
