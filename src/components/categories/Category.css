@@ -1,0 +1,9 @@
+.category{
+    max-width: 10rem;
+    margin: 1%;
+    border: 1px solid black
+}
+
+.miscbutton{
+    min-width: 5rem;
+}

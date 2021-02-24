@@ -18,6 +18,7 @@ export const Rare = (props) => (
             }
         }} />
 
+
         <Route path="/login" render={Login} />
         <Route path="/register" render={Register} />
     </>
