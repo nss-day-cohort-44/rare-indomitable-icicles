@@ -20,7 +20,7 @@ export const PostForm = (props) => {
     const category = useRef(null)
     const title = useRef(null)
     const publication_date = useRef(null)
-    const image = useRef(null)
+    const image_url = useRef(null)
     const content = useRef(null)
     const postTag = useRef(null)
 
@@ -109,10 +109,10 @@ export const PostForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Image Url:</label>
-                    <input type="text" name="image" required autoFocus className="form-control"
+                    <input type="text" name="image_url" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Image Url"
-                        defaultValue={formPost.image}
+                        defaultValue={formPost.image_url}
                         onChange={handleControlledInputChange}
                     />
                 </div>
