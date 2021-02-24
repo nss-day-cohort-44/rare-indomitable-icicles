@@ -17,7 +17,7 @@ export const PostDetail = (props) => {
         // const postId = parseInt(props.match.params.postId)
         
         getSinglePost(postId)
-        // getCommentsByPostId(postId)
+        
             .then(setPost(post))
     }, [])
 
@@ -35,15 +35,14 @@ export const PostDetail = (props) => {
         getCommentsByPostId(postId)
     }, [comments])
 
-    // const author = (post.rare_user.user.first_name + post.rare_user.user.first_name)
-// debugger
+    console.log("post", post)
     return (
         <>
             <div>{post.title}</div>
             <div>{post.image_url}</div>
             <div>{post.content}</div>
             <div>{post.publication_date}</div>
-            {/* <div>{post.rare_user.user.first_name}</div> */}
+            <div>{post.rare_user.user.first_name}</div>
             <div>{post.category.label}</div>
             { parseInt(localStorage.getItem("rare_token")) === post.user_id ? <>
                 <button onClick={() => { confirmDelete() }}>Delete Post</button> 
