@@ -17,7 +17,11 @@ export const UserPostList = (props) => {
     return (
         <div>
             <h1>My Posts</h1>
-            <Link to="/posts/create">Create New Post</Link>
+            <button onClick={() => {
+                props.history.push(`/posts/create`)
+            }}>Create a new post
+            </button>
+            {/* <Link to="/posts/create">Create New Post</Link> */}
             {
                 posts.map(p => <Post key={p.id} post={p} props={props} />)
             }
