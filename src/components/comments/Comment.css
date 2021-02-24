@@ -1,5 +1,9 @@
 .comment{
-    max-width: 10rem;
+    max-width: 400px;
     margin: 1%;
     border: 1px solid black
+}
+
+.miscbutton{
+    min-width: 5rem;
 }
