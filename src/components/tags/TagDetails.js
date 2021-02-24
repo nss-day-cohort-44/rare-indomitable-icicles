@@ -1,27 +1,27 @@
 import React, { useContext } from "react"
 import { TagContext } from "./TagProvider"
-
+import './Tag.css'
 
 
 export const Tag = ({ tag, props }) => {
 
     const { deleteTag } = useContext(TagContext)
-   
-    const confirmDelete =()=>{
+
+    const confirmDelete = () => {
         const d = window.confirm("Are you sure you would like to delete this tag?")
-        if(d===true){
+        if (d === true) {
             deleteTag(tag.id).then(() => { props.history.push("/tags") })
         }
-     }
+    }
 
     if (localStorage.getItem("rare_token")) {
         return (
-            <div>
+            <div className="tag">
                 {tag.label}
 
-               <button onClick={() => { confirmDelete() }}>Delete</button>  
+                <button onClick={() => { confirmDelete() }}>Delete</button>
 
-               <button onClick={() => {props.history.push({ pathname: `/tags/edit/${tag.id}`,  tagId : tag.id  })}}> Edit </button>
+                <button onClick={() => { props.history.push({ pathname: `/tags/edit/${tag.id}`, tagId: tag.id }) }}> Edit </button>
             </div>
         )
     } else {

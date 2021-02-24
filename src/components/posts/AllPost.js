@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { HumanDate } from "../utils/HumanDate"
+import './Post.css'
 
 export const AllPost = ({ post }) => {
     // when user provider is provided, if statement will need to be altered to user.id = localstorage.getItem(rare_user_id)
