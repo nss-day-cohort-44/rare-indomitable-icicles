@@ -21,8 +21,8 @@ export const PostProvider = (props) => {
             .then(setPosts)
     }
 
-    const getPostsByUserId = () =>{
-        
+    const getPostsByUserId = () => {
+
         return fetch(`http://localhost:8000/posts?sortby=user`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("rare_token")}`
