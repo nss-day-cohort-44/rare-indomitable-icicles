@@ -53,7 +53,7 @@ export const ApplicationViews = () => {
                     />
                     <Route
                       exact
-                      path="/allposts"
+                      path="/posts"
                       render={(props) => <AllPostList {...props} />}
                     />
                     <Route
