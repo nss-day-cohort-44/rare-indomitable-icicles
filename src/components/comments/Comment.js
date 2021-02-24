@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { CommentContext } from "./CommentProvider"
+import './Comment.css'
 
 export const Comment = ({ comment, props }) => {
 
@@ -11,13 +12,13 @@ export const Comment = ({ comment, props }) => {
         const prompt = window.confirm("Are you sure you want to delete this comment?")
         if (prompt === true) {
             deleteComment(comment.id)
-            .then(() => { props.history.push(`/comments`) })
+                .then(() => { props.history.push(`/comments`) })
         }
     }
 
     if (localStorage.getItem("rare_token")) {
         return (
-            <div>
+            <div className="comment">
                 <div>Comment content: {comment.content}</div>
                 <div>Relevant post id: {comment.post_id}</div>
                 <div>Author: {comment.username}</div>
