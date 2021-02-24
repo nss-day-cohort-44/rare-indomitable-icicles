@@ -8,14 +8,14 @@ import { HumanDate } from "../utils/HumanDate"
 export const Post = ({post, props}) =>{
     // when user provider is provided, if statement will need to be altered to user.id = localstorage.getItem(rare_token)
     // debugger
-    const postid = props.match.params.postid
+    
 
     if(localStorage.getItem("rare_token")){
         return(
             
             <div className="posts">
                 <Link to={{
-                    pathname: `/posts/${postid}`,
+                    pathname: `/posts/${post.id}`,
                     state: { chosenPost: post }
                 }}>title: {post.title}</Link>
                 <div>category: {post.category.label}</div>
