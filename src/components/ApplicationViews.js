@@ -66,7 +66,7 @@ export const ApplicationViews = () => {
                       render={(props) => <PostDetail {...props} />}
                     />
                     <Route
-                      path="/posts/addcomment"
+                      path="/posts/:postId(\d+)/addcomment"
                       render={(props) => <CommentForm {...props} />}
                     />
                     {/* route below is for testing only */}
