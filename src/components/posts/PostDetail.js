@@ -36,7 +36,7 @@ export const PostDetail = (props) => {
     }, [comments])
 
     // const author = (post.rare_user.user.first_name + post.rare_user.user.first_name)
-    
+debugger
     return (
         <>
             <div>{post.title}</div>
