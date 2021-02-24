@@ -55,7 +55,7 @@ export const PostDetail = (props) => {
                 relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
             <Link to={{
-                pathname: `/posts/addcomment`,
+                pathname: `/posts/${post.id}/addcomment`,
                 state: { chosenPost: post }
             }}>Add a Comment</Link>
         </>
