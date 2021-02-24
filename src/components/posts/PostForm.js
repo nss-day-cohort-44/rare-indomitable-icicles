@@ -80,7 +80,7 @@ export const PostForm = (props) => {
         } else {
             console.log(tagArrayState)
             addPost({
-                rare_user: parseInt(localStorage.getItem("rare_token_id")),
+                
                 category_id: parseInt(formPost.category_id),
                 title: formPost.title,
                 publication_date: Date.now(),
