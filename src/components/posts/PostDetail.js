@@ -11,10 +11,10 @@ export const PostDetail = (props) => {
     const { comments, relatedComments, getCommentsByPostId } = useContext(CommentContext)
 
     
-    // console.log(props)
     const postId = parseInt(props.match.params.postId)
+    console.log(postId)
     useEffect(() => {
-        // const postId = parseInt(props.match.params.postId)
+        getCommentsByPostId(postId)
         
         getSinglePost(postId)
         
