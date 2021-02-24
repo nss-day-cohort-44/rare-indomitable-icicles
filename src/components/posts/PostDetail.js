@@ -36,7 +36,7 @@ export const PostDetail = (props) => {
     }, [comments])
 
     // const author = (post.rare_user.user.first_name + post.rare_user.user.first_name)
-debugger
+// debugger
     return (
         <>
             <div>{post.title}</div>
@@ -52,7 +52,7 @@ debugger
             }
             <h3>Comments</h3>
             {
-                // relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
+                relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
             <Link to={{
                 pathname: `/posts/addcomment`,
