@@ -1,15 +1,17 @@
 import React, { useContext, useRef, useState, useEffect } from "react"
+import { PostContext } from "../posts/PostProvider"
 import { CommentContext } from "./CommentProvider"
 
 
 export const CommentForm = (props) => {
     const { addComment, updateComment, comments, getComments } = useContext(CommentContext)
+    const { getSinglePost, post } = useContext(PostContext)
 
     const [ comment, setComment ] = useState({})
 
     const editMode = props.match.params.hasOwnProperty("commentId")
 
-    const chosenPost = props.location.state.chosenPost
+    const chosenPost = post
 
     const post_id = parseInt(chosenPost.id)
     const author_id = parseInt(localStorage.getItem("rare_token"))
@@ -30,12 +32,13 @@ export const CommentForm = (props) => {
     
     useEffect(() =>{
         getComments()
+        getSinglePost()
     }, [])
     
     useEffect(() =>{
         getCommentInEditMode()
     }, [comments])
-    // debugger
+    debugger
     const constructNewComment = () => {
         if (editMode) {
             updateComment({
