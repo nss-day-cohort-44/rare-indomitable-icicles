@@ -22,7 +22,7 @@ export const AllPost = ({ post }) => {
             <div>image_url: {post.image_url}</div>
             <div>content: {post.content}</div> */}
             <div>category: {post.category.label}</div>
-            <div>author: {post.username} </div>
+            <div>author: {post.rare_user.user.first_name} </div>
         </div>
     )
 }
