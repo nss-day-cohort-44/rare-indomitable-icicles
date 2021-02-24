@@ -32,13 +32,13 @@ export const CommentForm = (props) => {
     
     useEffect(() =>{
         getComments()
-        getSinglePost()
+        // getSinglePost()
     }, [])
     
     useEffect(() =>{
         getCommentInEditMode()
     }, [comments])
-    debugger
+    // debugger
     const constructNewComment = () => {
         if (editMode) {
             updateComment({
@@ -48,15 +48,15 @@ export const CommentForm = (props) => {
                 content: comment.content,
                 created_on: comment.created_on   
             })
-            .then(() => props.history.push(`/comments`))
+            .then(() => props.history.push(`/posts/${post_id}`))
         } else {
             addComment({
                 post_id,
                 author_id,
                 content: comment.content,
-                created_on: Date.now()
+                // created_on is handled by class definition in models for Comment
             })
-            .then(() => props.history.push(`/comments`))
+            .then(() => props.history.push(`/posts/${post_id}`))
         }
     } 
 
