@@ -17,18 +17,20 @@ export const Category = ({ category }) => {
     }
 
     return (<section className="category">
-        <div className="category__label">{category.label}</div>
-        <button onClick={
-            () => {
-                confirmDelete(category.id)
-            }
-        }>
-            Delete
+        <h3 className="category__label">{category.label}</h3>
+        <div className="tagbuttons">
+            <button className="miscbutton" onClick={
+                () => {
+                    confirmDelete(category.id)
+                }
+            }>
+                Delete
             </button>
-        <button onClick={() => {
-            history.push(`/categories/edit/${category.id}`)
-        }}>Edit
+            <button className="miscbutton" onClick={() => {
+                history.push(`/categories/edit/${category.id}`)
+            }}>Edit
             </button>
+        </div>
     </section>
     )
 }

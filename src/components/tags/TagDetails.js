@@ -16,13 +16,14 @@ export const Tag = ({ tag, props }) => {
 
     if (localStorage.getItem("rare_token")) {
         return (
-            <div className="tag">
-                {tag.label}
+            <section className="tag">
+                <h3>{tag.label}</h3>
+                <div className="tagbuttons">
+                    <button className="miscbutton" onClick={() => { confirmDelete() }}>Delete</button>
 
-                <button onClick={() => { confirmDelete() }}>Delete</button>
-
-                <button onClick={() => { props.history.push({ pathname: `/tags/edit/${tag.id}`, tagId: tag.id }) }}> Edit </button>
-            </div>
+                    <button className="miscbutton" onClick={() => { props.history.push({ pathname: `/tags/edit/${tag.id}`, tagId: tag.id }) }}> Edit </button>
+                </div>
+            </section>
         )
     } else {
         return (

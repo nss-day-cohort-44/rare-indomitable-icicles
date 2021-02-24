@@ -49,14 +49,12 @@ export const NavBar = (props) => {
             </button>
             {
                 (localStorage.getItem("rare_token") !== null) ?
-                    // <li className="nav-item">
                     <button className="navbutton"
                         onClick={() => {
                             localStorage.removeItem("rare_token")
                             props.history.push({ pathname: "/" })
                         }}
                     >Logout</button> :
-                    // </li> :
                     <>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>

@@ -3,3 +3,7 @@
     margin: 1%;
     border: 1px solid black
 }
+
+.miscbutton{
+    min-width: 5rem;
+}
