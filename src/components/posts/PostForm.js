@@ -135,7 +135,7 @@ export const PostForm = (props) => {
                     </select>
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     {!editMode ? <label htmlFor="tags">Select Tags:</label> : ""}
                     {!editMode &&
@@ -149,7 +149,7 @@ export const PostForm = (props) => {
 
                     }
                 </div>
-            </fieldset>
+            </fieldset> */}
 
             <fieldset>
                 <div className="form-group">
