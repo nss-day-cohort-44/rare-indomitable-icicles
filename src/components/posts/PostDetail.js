@@ -29,7 +29,7 @@ export const PostDetail = (props) => {
 
     useEffect(() => {
         const postId = parseInt(props.match.params.postId)
-        getCommentsByPostId(postId)
+        // getCommentsByPostId(postId)
     }, [comments])
 
     // console.log(post)
@@ -48,7 +48,7 @@ export const PostDetail = (props) => {
             }
             <h3>Comments</h3>
             {
-                relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
+                // relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
             <Link to={{
                 pathname: `/posts/addcomment`,
