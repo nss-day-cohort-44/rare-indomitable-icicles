@@ -15,7 +15,7 @@ export const Post = ({post, props}) =>{
             
             <div className="posts">
                 <Link to={{
-                    pathname: `/posts/${post.title}`,
+                    pathname: `/posts/${postid}`,
                     state: { chosenPost: post }
                 }}>title: {post.title}</Link>
                 <div>category: {post.category.label}</div>

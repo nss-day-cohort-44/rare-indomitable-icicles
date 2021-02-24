@@ -62,7 +62,7 @@ export const ApplicationViews = () => {
                       render={(props) => <UserPostList {...props} />}
                     />
                     <Route
-                      path="/posts/:post"
+                      path="/posts/:postId(\d+)"
                       render={(props) => <PostDetail {...props} />}
                     />
                     <Route

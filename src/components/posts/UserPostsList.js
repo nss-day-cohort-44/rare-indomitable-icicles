@@ -8,7 +8,7 @@ export const UserPostList = (props) =>{
     // debugger
     const { posts, getPostsByUserId } = useContext(PostContext)
     
-    console.log("userPL", props.match.params)
+    
 
     useEffect(() => {
         getPostsByUserId()
