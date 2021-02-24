@@ -15,7 +15,7 @@ Rare is a publishing platform and social application that allows authenticated u
  
 ### Pull down the Client-Side Repo. 
  
->Note: This project is meant to run simultaneously with the Server-Side Repo found here: https://github.com/nss-day-cohort-44/rare-server-rabid-sharks*  
+>Note: This project is meant to run simultaneously with the Server-Side Repo found here: https://github.com/nss-day-cohort-44/rare-rest-api-indomitable-icicles/*  
 >Depending on which repo you start with, you may already have the following directories set up. 
 >This project requires Python
  
@@ -36,7 +36,7 @@ Rare is a publishing platform and social application that allows authenticated u
 
 4.   Enter the following commands: 
 
-```git clone git@github.com:nss-day-cohort-44/rare-rabid-sharks.git .```        _note the single dot preceded by a single space_
+```git clone git@github.com:nss-day-cohort-44/rare-indominatable-icicles.git .```        _note the single dot preceded by a single space_
 		
 ```npm install``` 
  
@@ -44,7 +44,7 @@ Rare is a publishing platform and social application that allows authenticated u
  
 ## **Technologies Used**
 This application was built using the React JavaScript library, and was bootstrapped with create-react-app. The only package used in the production site outside of those provided by create-react-app was react-router-dom.
-The API server is powered by SQLite, watchgod and Python.
+The API server is powered by SQLite, Python, Django.
 All styling was accomplished with vanilla CSS3 written by us.
 ## **Planning Resources**
 Below is the planning document we created before implementing this project. This resource proved to be valuable during development as it constantly gave us a guide to what needed to happen and in which chronology. The completed project bore a striking similarity to our plan.
@@ -52,9 +52,9 @@ Below is the planning document we created before implementing this project. This
 ![RareServerERD.png](RareServerERD.png)
  
 ## **Authors**
-Kyle Simmons
-Alan Andrusky
-Danny McCracken
 Benjamin Schweizer
-Silas Lowe
+Matthew Machurek
+Erica Phillips
+Leo Rondeau
+Jasmin Kaset
 
