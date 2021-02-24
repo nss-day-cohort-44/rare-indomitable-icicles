@@ -68,11 +68,11 @@ export const PostForm = (props) => {
         if (editMode) {
             updatePost({
                 id: formPost.id,
-                user_id: parseInt(localStorage.getItem("rare_token_id")),
+                rare_user: parseInt(localStorage.getItem("rare_token_id")),
                 category_id: parseInt(formPost.category_id),
                 title: formPost.title,
                 publication_date: Date.now(),
-                image_url: formPost.image_url,
+                image: formPost.image_url,
                 content: formPost.content,
                 approved: true
             })
@@ -80,11 +80,11 @@ export const PostForm = (props) => {
         } else {
             console.log(tagArrayState)
             addPost({
-                user_id: parseInt(localStorage.getItem("rare_token_id")),
+                
                 category_id: parseInt(formPost.category_id),
                 title: formPost.title,
                 publication_date: Date.now(),
-                image_url: formPost.image_url,
+                image: formPost.image_url,
                 content: formPost.content,
                 approved: true
             }, tagArrayState)
