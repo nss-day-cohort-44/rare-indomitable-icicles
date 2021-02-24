@@ -5,14 +5,14 @@ import './Post.css'
 import { HumanDate } from "../utils/HumanDate"
 
 
-export const Post = ({post, props}) =>{
+export const Post = ({ post, props }) => {
     // when user provider is provided, if statement will need to be altered to user.id = localstorage.getItem(rare_token)
     // debugger
-    
 
-    if(localStorage.getItem("rare_token")){
-        return(
-            
+
+    if (localStorage.getItem("rare_token")) {
+        return (
+
             <div className="posts">
                 <Link to={{
                     pathname: `/posts/${post.id}`,

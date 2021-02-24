@@ -10,14 +10,14 @@ export const PostDetail = (props) => {
     const { getSinglePost, post, setPost, deletePost } = useContext(PostContext)
     const { comments, relatedComments, getCommentsByPostId } = useContext(CommentContext)
 
-    
+
     // console.log(props)
     const postId = parseInt(props.match.params.postId)
     useEffect(() => {
         // const postId = parseInt(props.match.params.postId)
-        
+
         getSinglePost(postId)
-        
+
             .then(setPost(post))
     }, [])
 
@@ -38,14 +38,14 @@ export const PostDetail = (props) => {
     console.log("post", post)
     return (
         <>
-            <div>{post.title}</div>
+            <h2>{post.title}</h2>
             <div>{post.image_url}</div>
             <div>{post.content}</div>
             <div>{post.publication_date}</div>
             <div>{post.rare_user.user.first_name}</div>
             <div>{post.category.label}</div>
             { parseInt(localStorage.getItem("rare_token")) === post.user_id ? <>
-                <button onClick={() => { confirmDelete() }}>Delete Post</button> 
+                <button onClick={() => { confirmDelete() }}>Delete Post</button>
                 <button onClick={() => { props.history.push(`/posts/edit/${post.id}`) }}>
                     Edit Post</button> </> : <> {""}</>
             }
