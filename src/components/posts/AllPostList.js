@@ -1,19 +1,19 @@
-import React, {useContext, useEffect} from "react"
-import {PostContext} from "./PostProvider"
-import {AllPost} from "./AllPost"
+import React, { useContext, useEffect } from "react"
+import { PostContext } from "./PostProvider"
+import { AllPost } from "./AllPost"
 
-export const AllPostList = (props) =>{
+export const AllPostList = (props) => {
     const { posts, getPosts } = useContext(PostContext)
 
-    useEffect(() =>{
+    useEffect(() => {
         getPosts()
     }, [])
 
     return (
         <div>
-            <h3>Posts</h3>
+            <h1>Posts</h1>
             {
-                posts.map(p => <AllPost key={p.id} post={p} props={props}/>)
+                posts.map(p => <AllPost key={p.id} post={p} props={props} />)
             }
         </div>
     )
