@@ -10,14 +10,16 @@ export const PostDetail = (props) => {
     const { getSinglePost, post, setPost, deletePost } = useContext(PostContext)
     const { comments, relatedComments, getCommentsByPostId } = useContext(CommentContext)
 
-    
+
     const postId = parseInt(props.match.params.postId)
     console.log(postId)
     useEffect(() => {
+        // const postId = parseInt(props.match.params.postId)
+
         getCommentsByPostId(postId)
-        
+
         getSinglePost(postId)
-        
+
             .then(setPost(post))
     }, [])
 
@@ -38,14 +40,14 @@ export const PostDetail = (props) => {
     console.log("post", post)
     return (
         <>
-            <div>{post.title}</div>
+            <h2>{post.title}</h2>
             <div>{post.image_url}</div>
             <div>{post.content}</div>
             <div>{post.publication_date}</div>
             <div>{post.rare_user.user.first_name}</div>
             <div>{post.category.label}</div>
             { parseInt(localStorage.getItem("rare_token")) === post.user_id ? <>
-                <button onClick={() => { confirmDelete() }}>Delete Post</button> 
+                <button onClick={() => { confirmDelete() }}>Delete Post</button>
                 <button onClick={() => { props.history.push(`/posts/edit/${post.id}`) }}>
                     Edit Post</button> </> : <> {""}</>
             }
@@ -53,10 +55,15 @@ export const PostDetail = (props) => {
             {
                 relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
-            <Link to={{
+            <button onClick={() => {
+                props.history.push(`/posts/${post.id}/addcomment`)
+            }}>Add a Comment
+            </button>
+            {/* If you want a link instead */}
+            {/* <Link to={{
                 pathname: `/posts/${post.id}/addcomment`,
                 state: { chosenPost: post }
-            }}>Add a Comment</Link>
+            }}>Add a Comment</Link> */}
         </>
     )
 }

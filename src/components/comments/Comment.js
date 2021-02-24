@@ -28,19 +28,19 @@ export const Comment = ({ comment, props }) => {
                     day: "numeric",
                     timeZone: "America/Chicago",
                 })}</div>
-                <button onClick={() => {
+                <button className="miscbutton" onClick={() => {
                     confirmDeleteComment()
                 }}>
-                    Delete Comment
+                    Delete
                 </button>
-                <button onClick={() => {
+                <button className="miscbutton" onClick={() => {
                     props.history.push({
                         pathname: `/comments/edit/${comment.id}`,
                         commentId: comment.id,
                         state: { chosenPost: postId }
                     })
                 }}>
-                    Edit Comment
+                    Edit
                 </button>
             </div>
         )
