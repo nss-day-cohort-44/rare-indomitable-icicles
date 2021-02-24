@@ -55,10 +55,15 @@ export const PostDetail = (props) => {
             {
                 relatedComments.map(commentObj => <Comment key={commentObj.id} comment={commentObj} props={props} />)
             }
-            <Link to={{
+            <button onClick={() => {
+                props.history.push(`/posts/${post.id}/addcomment`)
+            }}>Add a Comment
+            </button>
+            {/* If you want a link instead */}
+            {/* <Link to={{
                 pathname: `/posts/${post.id}/addcomment`,
                 state: { chosenPost: post }
-            }}>Add a Comment</Link>
+            }}>Add a Comment</Link> */}
         </>
     )
 }
