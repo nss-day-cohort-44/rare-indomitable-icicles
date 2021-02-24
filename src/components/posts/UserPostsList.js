@@ -4,11 +4,11 @@ import { Post } from "./Post"
 import { Link } from "react-router-dom"
 
 
-export const UserPostList = (props) =>{
+export const UserPostList = (props) => {
     // debugger
     const { posts, getPostsByUserId } = useContext(PostContext)
-    
-    
+
+
 
     useEffect(() => {
         getPostsByUserId()
@@ -16,7 +16,7 @@ export const UserPostList = (props) =>{
 
     return (
         <div>
-            <h3>Posts</h3>
+            <h3>My Posts</h3>
             <Link to="/posts/create">Create New Post</Link>
             {
                 posts.map(p => <Post key={p.id} post={p} props={props} />)

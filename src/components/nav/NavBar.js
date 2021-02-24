@@ -3,10 +3,13 @@ import { Link } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = (props) => {
-    
-    
+
+
     return (
         <ul className="navbar">
+            <li className="nav-item">
+                <Link className="nav-link" to="/posts">Posts</Link>
+            </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/myposts">My Posts</Link>
             </li>
@@ -17,7 +20,7 @@ export const NavBar = (props) => {
                 <Link className="nav-link" to="/tags">Tag Management</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+                <Link className="nav-link" to="/profile">Profiles</Link>
             </li>
             {
                 (localStorage.getItem("rare_token") !== null) ?
