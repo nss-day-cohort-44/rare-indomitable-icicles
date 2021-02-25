@@ -35,6 +35,11 @@ export const ApplicationViews = () => {
               <UserProvider>
                 <CategoryProvider>
                   <CommentProvider>
+                  <Route
+                      exact
+                      path="/"
+                      render={(props) => <h1>Welcome to Rare Publishing Platform</h1>}
+                    />
                     <Route
                       path="/posts/manage_tags/:postId(\d+)"
                       render={(props) => <PostTagList {...props} />}
