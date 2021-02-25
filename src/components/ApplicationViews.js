@@ -38,7 +38,7 @@ export const ApplicationViews = () => {
                   <Route
                       exact
                       path="/"
-                      render={(props) => <h1>Welcome to Rare Publishing Platform</h1>}
+                      render={(props) => <h1>Welcome to Leo's Deep Thoughts</h1>}
                     />
                     <Route
                       path="/posts/manage_tags/:postId(\d+)"
