@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 import Logo from "./rare.jpeg"
+import leo from "./leo.png"
 
 export const NavBar = (props) => {
 
@@ -9,7 +10,7 @@ export const NavBar = (props) => {
     return (
         <ul className="navbar">
             <div className="navbar__item">
-                <img className="navbar__logo" src={Logo} />
+                <img className="navbar__logo" src={leo} />
             </div>
             {/* uncomment this if you want links instead of buttons */}
             {/* <li className="nav-item">
