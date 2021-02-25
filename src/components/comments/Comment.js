@@ -20,7 +20,6 @@ console.log(comment)
         return (
             <div className="comment">
                 <div>Comment content: {comment.content}</div>
-                {/* <div>Relevant post id: {comment.post_id}</div> */}
                 <div>Author: {comment.author.user.first_name}</div>
                 <div>Date Created on: {date.toLocaleString("en-US", {
                     year: "numeric",
