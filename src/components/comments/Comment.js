@@ -12,16 +12,15 @@ export const Comment = ({ comment, props }) => {
         const prompt = window.confirm("Are you sure you want to delete this comment?")
         if (prompt === true) {
             deleteComment(comment.id)
-                .then(() => { props.history.push(`/comments`) })
+                .then(() => { props.history.push(`/posts/${postId}`) })
         }
     }
-
+console.log(comment)
     if (localStorage.getItem("rare_token")) {
         return (
             <div className="comment">
                 <div>Comment content: {comment.content}</div>
-                <div>Relevant post id: {comment.post_id}</div>
-                <div>Author: {comment.username}</div>
+                <div>Author: {comment.author.user.first_name}</div>
                 <div>Date Created on: {date.toLocaleString("en-US", {
                     year: "numeric",
                     month: "numeric",
