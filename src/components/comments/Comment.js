@@ -21,7 +21,7 @@ export const Comment = ({ comment, props }) => {
             <div className="comment">
                 <div>Comment content: {comment.content}</div>
                 <div>Relevant post id: {comment.post_id}</div>
-                <div>Author: {comment.username}</div>
+                <div>Author: {comment.author}</div>
                 <div>Date Created on: {date.toLocaleString("en-US", {
                     year: "numeric",
                     month: "numeric",
