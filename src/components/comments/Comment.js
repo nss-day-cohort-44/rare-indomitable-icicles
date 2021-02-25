@@ -12,7 +12,7 @@ export const Comment = ({ comment, props }) => {
         const prompt = window.confirm("Are you sure you want to delete this comment?")
         if (prompt === true) {
             deleteComment(comment.id)
-                .then(() => { props.history.push(`/comments`) })
+                .then(() => { props.history.push(`/posts/${postId}`) })
         }
     }
 console.log(comment)
