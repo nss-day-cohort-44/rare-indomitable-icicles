@@ -12,9 +12,8 @@ export const PostDetail = (props) => {
 
 
     const postId = parseInt(props.match.params.postId)
-    console.log(postId)
+
     useEffect(() => {
-        // const postId = parseInt(props.match.params.postId)
 
         getCommentsByPostId(postId)
 
@@ -37,7 +36,7 @@ export const PostDetail = (props) => {
         getCommentsByPostId(postId)
     }, [comments])
 
-    console.log("post", post)
+    // console.log("post", post)
     return (
         <>
             <h2>{post.title}</h2>

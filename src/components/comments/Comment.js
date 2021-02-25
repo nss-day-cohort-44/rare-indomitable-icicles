@@ -15,12 +15,12 @@ export const Comment = ({ comment, props }) => {
                 .then(() => { props.history.push(`/comments`) })
         }
     }
-
+console.log(comment)
     if (localStorage.getItem("rare_token")) {
         return (
             <div className="comment">
                 <div>Comment content: {comment.content}</div>
-                <div>Relevant post id: {comment.post_id}</div>
+                {/* <div>Relevant post id: {comment.post_id}</div> */}
                 <div>Author: {comment.author}</div>
                 <div>Date Created on: {date.toLocaleString("en-US", {
                     year: "numeric",
